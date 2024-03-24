@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BiathlonDBModelStoreContainer" CdmEntityContainer="BiathlonDBEntities">
+    <EntitySetMapping Name="TypStartu">
+      <EntityTypeMapping TypeName="BiathlonDBModel.TypStartu">
+        <MappingFragment StoreEntitySet="TypStartu">
+          <ScalarProperty Name="NrTypu" ColumnName="NrTypu" />
+          <ScalarProperty Name="NazwaTypu" ColumnName="NazwaTypu" />
+          <ScalarProperty Name="Dystans" ColumnName="Dystans" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wyniki">
+      <EntityTypeMapping TypeName="BiathlonDBModel.Wyniki">
+        <MappingFragment StoreEntitySet="Wyniki">
+          <ScalarProperty Name="NrWyniku" ColumnName="NrWyniku" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="MiejsceZawodow" ColumnName="MiejsceZawodow" />
+          <ScalarProperty Name="RodzajStartu" ColumnName="RodzajStartu" />
+          <ScalarProperty Name="MiejsceZajete" ColumnName="MiejsceZajete" />
+          <ScalarProperty Name="Zawodnik" ColumnName="Zawodnik" />
+          <ScalarProperty Name="IloscPudel" ColumnName="IloscPudel" />
+          <ScalarProperty Name="Czas" ColumnName="Czas" />
+          <ScalarProperty Name="RangaZawodow" ColumnName="RangaZawodow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zawodnik">
+      <EntityTypeMapping TypeName="BiathlonDBModel.Zawodnik">
+        <MappingFragment StoreEntitySet="Zawodnik">
+          <ScalarProperty Name="NrZawodnika" ColumnName="NrZawodnika" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BiathlonDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TypStartu">
+    <Key>
+      <PropertyRef Name="NrTypu" />
+    </Key>
+    <Property Name="NrTypu" Type="Int32" Nullable="false" />
+    <Property Name="NazwaTypu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Dystans" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Wyniki" Relationship="Self.FK_Wyniki_TypStartu" FromRole="TypStartu" ToRole="Wyniki" />
+  </EntityType>
+  <EntityType Name="Wyniki">
+    <Key>
+      <PropertyRef Name="NrWyniku" />
+    </Key>
+    <Property Name="NrWyniku" Type="Int32" Nullable="false" />
+    <Property Name="Data" Type="DateTime" Precision="0" />
+    <Property Name="MiejsceZawodow" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RodzajStartu" Type="Int32" Nullable="false" />
+    <Property Name="MiejsceZajete" Type="Int32" />
+    <Property Name="Zawodnik" Type="Int32" Nullable="false" />
+    <Property Name="IloscPudel" Type="Int32" />
+    <Property Name="Czas" Type="Time" Precision="7" />
+    <Property Name="RangaZawodow" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TypStartu" Relationship="Self.FK_Wyniki_TypStartu" FromRole="Wyniki" ToRole="TypStartu" />
+    <NavigationProperty Name="Zawodnik1" Relationship="Self.FK_Wyniki_Zawodnik" FromRole="Wyniki" ToRole="Zawodnik" />
+  </EntityType>
+  <EntityType Name="Zawodnik">
+    <Key>
+      <PropertyRef Name="NrZawodnika" />
+    </Key>
+    <Property Name="NrZawodnika" Type="Int32" Nullable="false" />
+    <Property Name="Nazwa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Kraj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Wyniki" Relationship="Self.FK_Wyniki_Zawodnik" FromRole="Zawodnik" ToRole="Wyniki" />
+  </EntityType>
+  <Association Name="FK_Wyniki_TypStartu">
+    <End Role="TypStartu" Type="Self.TypStartu" Multiplicity="1" />
+    <End Role="Wyniki" Type="Self.Wyniki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypStartu">
+        <PropertyRef Name="NrTypu" />
+      </Principal>
+      <Dependent Role="Wyniki">
+        <PropertyRef Name="RodzajStartu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wyniki_Zawodnik">
+    <End Role="Zawodnik" Type="Self.Zawodnik" Multiplicity="1" />
+    <End Role="Wyniki" Type="Self.Wyniki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnik">
+        <PropertyRef Name="NrZawodnika" />
+      </Principal>
+      <Dependent Role="Wyniki">
+        <PropertyRef Name="Zawodnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BiathlonDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TypStartu" EntityType="Self.TypStartu" />
+    <EntitySet Name="Wyniki" EntityType="Self.Wyniki" />
+    <EntitySet Name="Zawodnik" EntityType="Self.Zawodnik" />
+    <AssociationSet Name="FK_Wyniki_TypStartu" Association="Self.FK_Wyniki_TypStartu">
+      <End Role="TypStartu" EntitySet="TypStartu" />
+      <End Role="Wyniki" EntitySet="Wyniki" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wyniki_Zawodnik" Association="Self.FK_Wyniki_Zawodnik">
+      <End Role="Zawodnik" EntitySet="Zawodnik" />
+      <End Role="Wyniki" EntitySet="Wyniki" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

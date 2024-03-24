@@ -1,0 +1,10 @@
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\bin\Debug\BiathlonData.dacpac
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\bin\Debug\BiathlonData.dll
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\bin\Debug\BiathlonData.pdb
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\obj\Debug\BiathlonData.sqlproj.AssemblyReference.cache
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\obj\Debug\BiathlonData.dll
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\obj\Debug\BiathlonData.pdb
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\obj\Debug\Model.xml
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\obj\Debug\refactor.xml
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\obj\Debug\postdeploy.sql
+C:\Users\mojca\Desktop\narzedzia\BiathlonEF\BiathlonData\obj\Debug\predeploy.sql

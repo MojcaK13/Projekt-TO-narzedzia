@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BiathlonDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TypStartu">
+    <Key>
+      <PropertyRef Name="NrTypu" />
+    </Key>
+    <Property Name="NrTypu" Type="int" Nullable="false" />
+    <Property Name="NazwaTypu" Type="varchar(max)" />
+    <Property Name="Dystans" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Wyniki">
+    <Key>
+      <PropertyRef Name="NrWyniku" />
+    </Key>
+    <Property Name="NrWyniku" Type="int" Nullable="false" />
+    <Property Name="Data" Type="date" />
+    <Property Name="MiejsceZawodow" Type="varchar(max)" />
+    <Property Name="RodzajStartu" Type="int" Nullable="false" />
+    <Property Name="MiejsceZajete" Type="int" />
+    <Property Name="Zawodnik" Type="int" Nullable="false" />
+    <Property Name="IloscPudel" Type="int" />
+    <Property Name="Czas" Type="time" Precision="7" />
+    <Property Name="RangaZawodow" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Zawodnik">
+    <Key>
+      <PropertyRef Name="NrZawodnika" />
+    </Key>
+    <Property Name="NrZawodnika" Type="int" Nullable="false" />
+    <Property Name="Nazwa" Type="varchar(max)" />
+    <Property Name="Kraj" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_Wyniki_TypStartu">
+    <End Role="TypStartu" Type="Self.TypStartu" Multiplicity="1" />
+    <End Role="Wyniki" Type="Self.Wyniki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypStartu">
+        <PropertyRef Name="NrTypu" />
+      </Principal>
+      <Dependent Role="Wyniki">
+        <PropertyRef Name="RodzajStartu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wyniki_Zawodnik">
+    <End Role="Zawodnik" Type="Self.Zawodnik" Multiplicity="1" />
+    <End Role="Wyniki" Type="Self.Wyniki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnik">
+        <PropertyRef Name="NrZawodnika" />
+      </Principal>
+      <Dependent Role="Wyniki">
+        <PropertyRef Name="Zawodnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BiathlonDBModelStoreContainer">
+    <EntitySet Name="TypStartu" EntityType="Self.TypStartu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wyniki" EntityType="Self.Wyniki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zawodnik" EntityType="Self.Zawodnik" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Wyniki_TypStartu" Association="Self.FK_Wyniki_TypStartu">
+      <End Role="TypStartu" EntitySet="TypStartu" />
+      <End Role="Wyniki" EntitySet="Wyniki" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wyniki_Zawodnik" Association="Self.FK_Wyniki_Zawodnik">
+      <End Role="Zawodnik" EntitySet="Zawodnik" />
+      <End Role="Wyniki" EntitySet="Wyniki" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

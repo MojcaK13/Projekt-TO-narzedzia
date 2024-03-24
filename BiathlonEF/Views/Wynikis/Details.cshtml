@@ -1,0 +1,82 @@
+﻿@model BiathlonEF.Models.Wyniki
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Wyniki</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiejsceZawodow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiejsceZawodow)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiejsceZajete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiejsceZajete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IloscPudel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IloscPudel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Czas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Czas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RangaZawodow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RangaZawodow)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypStartu.NazwaTypu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypStartu.NazwaTypu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zawodnik1.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zawodnik1.Nazwa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NrWyniku }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

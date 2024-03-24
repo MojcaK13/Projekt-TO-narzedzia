@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BiathlonEF.Models.Wyniki>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiejsceZawodow)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiejsceZajete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IloscPudel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Czas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RangaZawodow)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypStartu.NazwaTypu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zawodnik1.Nazwa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiejsceZawodow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiejsceZajete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IloscPudel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Czas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RangaZawodow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypStartu.NazwaTypu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zawodnik1.Nazwa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NrWyniku }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NrWyniku }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NrWyniku })
+        </td>
+    </tr>
+}
+
+</table>

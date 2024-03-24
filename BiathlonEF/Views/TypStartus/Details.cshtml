@@ -1,0 +1,34 @@
+﻿@model BiathlonEF.Models.TypStartu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TypStartu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NazwaTypu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazwaTypu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dystans)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dystans)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NrTypu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
